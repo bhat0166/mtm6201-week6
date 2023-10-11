@@ -1,3 +1,15 @@
+
+/* custom propities */
+
+:root{
+    --special-color: plum;
+    --second-color:aqua;
+    --light-color:white;
+    --dark-color:black;
+    --bright-color:red;
+}
+
+
 .container{
     max-width: 900px;
     margin: 0 auto;
@@ -33,4 +45,69 @@ nav a:focus{
 
 nav a:active{
     transform: scale(1.2) translateX(10px);
+}
+
+
+/* > is direct child combinator */
+main>p{
+    font-size: 1.25rem;
+}
+/* + is the adjacent combinator */
+h2 +p{
+    color: var(--light-color);
+    padding: 1rem;
+    background-color: var(--dark-color);
+}
+
+.stars span:hover{
+    cursor: pointer;
+}
+
+/* ~ is sibiling combinator */
+.stars span:hover~span{
+    opacity: .5;
+
+}
+
+
+a[href="#"]{
+    color: var(--special-color);
+}
+
+a[href^="http"]{
+    border-left: 6px solid var(--special-color);
+    padding-left: 1em;
+}
+/* 
+[class="google"]{
+
+} 
+*/
+/* $= is for ends with */
+a[href$=".pdf"]::after{
+    content: "\2193";
+    font-size: 1.25rem;
+    font-weight: bolder;
+    color:var(--special-color);
+}
+
+h2+p::first-line{
+    color:var(--special-color);
+}
+
+h3+p::first-letter{
+    background-color: var(--second-color);
+    color: var(--bright-color);
+    font-size: 1.25rem;
+    padding:.25rem;
+    margin: .15em;
+}
+
+.google{
+    display: block;
+    background-color: var(--second-color);
+    padding:2rem;
+    margin:1rem;
+    width:calc(100% -6px -1rem -1rem -1rem -2rem);
+    border-color: var(--special-color);
 }
